@@ -5,6 +5,7 @@
 - [How it works](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#how-it-works)
 - [Installation](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#installation)
 - [Database schema](https://github.com/iThorgrim/lua-spell-bonus-actions/tree/main#database-schema)
+- [Configuration](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#configuration)
 - [How to use](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#how-to-use)
 - [Contribution](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#contribution)
 
@@ -23,12 +24,15 @@ Two main modules drive the operation of this project: Entity and Controller.
 **Controller** is responsible for processing player events, such as zone change, item acquisition, aura application and so on. It checks whether the player meets all the conditions for spell activation, and triggers spell activation if necessary.
 
 ## Installation
-First, make sure your project's dependencies(last revision of AzerothCore and mod-eluna) are correctly installed.
+First, make sure your project's dependencies(last revision of [AzerothCore](https://www.azerothcore.org/), [mod-eluna](https://github.com/azerothcore/mod-eluna) and [AIO](https://github.com/Rochet2/AIO)) are correctly installed.
 
 Then clone this repository in the appropriate directory of your project.
 ```bash
 git clone https://github.com/iThorgrim/lua-spell-bonus-action.git
 ```
+
+Make a Patch with ClientSide content, simply, take the interface folder and drag it into a patch.
+Share the patch with players.
 
 **Database schema**
 
@@ -49,6 +53,11 @@ CREATE TABLE `index_spell_bonus_action_conditions` (
   CONSTRAINT `spell_id` FOREIGN KEY (`spell_id`) REFERENCES `index_spell_bonus_action` (`spell_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ```
+
+## Configuration
+Just edit the database name in : 
+> Spell_Bonus_Action/Config/Spell_Bonus_Action_Config.lua
+
 
 ## Use
 Once the project has been set up correctly, each player event will trigger a check of the conditions associated with that type of event (e.g. equipping an item). If all conditions are met, the corresponding effect will be triggered.
