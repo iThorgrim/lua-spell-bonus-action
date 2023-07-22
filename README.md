@@ -1,15 +1,15 @@
 # Spell Bonus Action
 
 ## Table of contents
-- [Short description](https://github.com/iThorgrim/lua-overlay-spells/tree/main#short-description)
-- [How it works](https://github.com/iThorgrim/lua-overlay-spells/tree/main#how-it-works)
-- [Installation](https://github.com/iThorgrim/lua-overlay-spells/tree/main#installation)
-- [Database schema](https://github.com/iThorgrim/lua-overlay-spells/tree/main#database-schema)
-- [How to use](https://github.com/iThorgrim/lua-overlay-spells/tree/main#how-to-use)
-- [Contribution](https://github.com/iThorgrim/lua-overlay-spells/tree/main#contribution)
+- [Short description](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#short-description)
+- [How it works](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#how-it-works)
+- [Installation](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#installation)
+- [Database schema](https://github.com/iThorgrim/lua-spell-bonus-actions/tree/main#database-schema)
+- [How to use](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#how-to-use)
+- [Contribution](https://github.com/iThorgrim/lua-spell-bonus-action/tree/main#contribution)
 
 ## Short description
-This project is a Lua implementation for managing overlay spell activation conditions, including features such as spell activation when equipping items, zone change, aura application and more.
+This project is a Lua implementation for managing spell bonus action activation conditions, including features such as spell activation when equipping items, zone change, aura application and more.
 
 It uses an entity-oriented approach to data management and also includes an AIO client to manage the client-side user interface. The whole project is based on an MVC architecture for better organization and readability.
 
@@ -35,18 +35,18 @@ git clone https://github.com/iThorgrim/lua-spell-bonus-action.git
 Make sure your database contains the tables required for the application. You can find the necessary schema in the database.sql file included in this repository.
 
 ```sql
-CREATE TABLE `index_spell_overlay` (
+CREATE TABLE `index_spell_bonus_action` (
   `spell_id` int(10) NOT NULL,
   `overlay_texture` varchar(150) NOT NULL DEFAULT 'stormyellow-extrabutton',
   PRIMARY KEY (`spell_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `index_spell_overlay_conditions` (
+CREATE TABLE `index_spell_bonus_action_conditions` (
   `spell_id` int(11) NOT NULL,
   `condition_type` enum('aura','item','item_equipped','map_id','zone_id','area_id','active_event','min_level','class','race','phase_mask','quest_rewarded','quest_incomplete','min_hp_pct','max_hp_pct') NOT NULL,
   `condition_value` int(11) DEFAULT NULL,
   PRIMARY KEY (`spell_id`,`condition_type`),
-  CONSTRAINT `spell_id` FOREIGN KEY (`spell_id`) REFERENCES `index_spell_overlay` (`spell_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `spell_id` FOREIGN KEY (`spell_id`) REFERENCES `index_spell_bonus_action` (`spell_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ```
 
@@ -58,9 +58,9 @@ I'd like to display spell 59752 (Will to Survive) to players who have the hearth
 
 **MySQL Code**
 ```sql
-INSERT INTO `index_spell_overlay` VALUES ('59752', 'air-extrabutton');
+INSERT INTO `index_spell_bonus_action` VALUES ('59752', 'air-extrabutton');
 
-INSERT INTO `index_spell_overlay_conditions` (`spell_id`, `condition_type`, `condition_value`) VALUES
+INSERT INTO `index_spell_bonus_action_conditions` (`spell_id`, `condition_type`, `condition_value`) VALUES
 ('59752', 'item', '6948'),
 ('59752', 'map_id', '571'),
 ('59752', 'zone_id', '4395'),
