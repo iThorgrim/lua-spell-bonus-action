@@ -1,12 +1,12 @@
 # Spell Bonus Action
 
 ## Table of contents
-- [Short description](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#short-description)
-- [How it works](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#how-it-works)
-- [Installation](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#installation)
-- [Database schema](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#database-schema)
-- [How to use](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#how-to-use)
-- [Contribution](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#contribution)
+- [Short description](https://github.com/iThorgrim/lua-overlay-spells/tree/main#short-description)
+- [How it works](https://github.com/iThorgrim/lua-overlay-spells/tree/main#how-it-works)
+- [Installation](https://github.com/iThorgrim/lua-overlay-spells/tree/main#installation)
+- [Database schema](https://github.com/iThorgrim/lua-overlay-spells/tree/main#database-schema)
+- [How to use](https://github.com/iThorgrim/lua-overlay-spells/tree/main#how-to-use)
+- [Contribution](https://github.com/iThorgrim/lua-overlay-spells/tree/main#contribution)
 
 ## Short description
 This project is a Lua implementation for managing overlay spell activation conditions, including features such as spell activation when equipping items, zone change, aura application and more.
