@@ -8,21 +8,21 @@
 - [How to use](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#how-to-use)
 - [Contribution](https://github.com/iThorgrim/lua-overlay-spells/blob/main/README.md#contribution)
 
-### Short description
+## Short description
 This project is a Lua implementation for managing overlay spell activation conditions, including features such as spell activation when equipping items, zone change, aura application and more.
 
 It uses an entity-oriented approach to data management and also includes an AIO client to manage the client-side user interface. The whole project is based on an MVC architecture for better organization and readability.
 
 A "generic" condition system is linked to the database.
 
-### How it works
+## How it works
 Two main modules drive the operation of this project: Entity and Controller.
 
 **Entity** is responsible for loading and organizing database-based conditions. It retrieves all conditions from a database query and organizes these conditions by associating them with spell identifiers.
 
 **Controller** is responsible for processing player events, such as zone change, item acquisition, aura application and so on. It checks whether the player meets all the conditions for spell activation, and triggers spell activation if necessary.
 
-### Installation
+## Installation
 First, make sure your project's dependencies(last revision of AzerothCore and mod-eluna) are correctly installed.
 
 Then clone this repository in the appropriate directory of your project.
@@ -50,10 +50,10 @@ CREATE TABLE `index_spell_overlay_conditions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ```
 
-### Use
+## Use
 Once the project has been set up correctly, each player event will trigger a check of the conditions associated with that type of event (e.g. equipping an item). If all conditions are met, the corresponding effect will be triggered.
 
-### Exemple
+## Exemple
 I'd like to display spell 59752 (Will to Survive) to players who have the hearthstone in their bags, in Northrend, Dalaran and Runeweaver Square.
 
 **MySQL Code**
@@ -76,7 +76,5 @@ INSERT INTO `index_spell_overlay_conditions` (`spell_id`, `condition_type`, `con
 
 ![image](https://github.com/iThorgrim/lua-overlay-spells/assets/125808072/ca18b050-c444-40fd-a0f6-dae72bff3501)
 
-
-
-### Contribution
+## Contribution
 Contributions are always welcome! Feel free to submit a Pull Request.
